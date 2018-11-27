@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Wolverine Sports Analytics</span>
+
+  <span class="example-fill-remaining-space"></span>
+  <span *ngIf="loggedIn">Hello {{ currentUser.firstName }}!</span>
+  <button mat-button (click)="login()" *ngIf="!loggedIn">Login</button>
+  <button mat-button [matMenuTriggerFor]="menu">Sports</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let sport of sports" (click)="sportClick(sport.sport)">
+      <span>{{ sport.sport }}</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

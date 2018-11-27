@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-container">
+    <mat-form-field>
+      Username:
+      <input matInput type="text" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      Password:
+      <input matInput type="text" formControlName="password" type="password">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button type="submit" mat-button [disabled]="!loginForm.valid" mat-dialog-close (click)="onSubmit(loginForm.value)" cdkFocusInitial>Submit</button>
+</div>
