@@ -1,17 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import { Routes} from '@angular/router';
 import {FrontPageComponent} from './front-page/front-page.component';
 import {LoginComponent} from './login/login.component';
+import {LoginGuardService} from './shared/services/login-guard.service';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'home', component: FrontPageComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full'}
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home/sports', loadChildren: './sports/sports.module#SportsModule', canActivate: [LoginGuardService]}
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

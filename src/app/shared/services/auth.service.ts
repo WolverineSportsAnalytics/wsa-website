@@ -14,7 +14,9 @@ export class AuthService {
 
   private currentUser: User;
 
-  constructor(private http: HttpClient, private wsaCommonService: CommonDataService) { }
+  constructor(private http: HttpClient, private wsaCommonService: CommonDataService) {
+    this.currentUser = null;
+  }
 
   loginUser(userName: string, password: string) {
     // set current user to logged in user

@@ -12,25 +12,23 @@ import {AuthService} from '../shared/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public sports: SportMenuInterface[];
   public loggedIn: boolean;
   public currentUser: User;
 
   constructor(private router: Router, public dialog: MatDialog, private auth: AuthService) {
-    this.sports = [
-      {sport: 'NBA', icon: 'explore', routerLink: '/NBA'},
-      {sport: 'WNBA', icon: 'explore', routerLink: '/WNBA'},
-      {sport: 'NFL', icon: 'explore', routerLink: '/NFL'},
-      {sport: 'MLB', icon: 'explore', routerLink: '/MLB'},
-      {sport: 'Soccer', icon: 'explore', routerLink: '/Soccer'},
-      {sport: 'E-Sports', icon: 'explore', routerLink: '/E-Sports'}
-    ];
-
     this.loggedIn = this.isAuthenticated();
   }
 
 
   ngOnInit() {
+  }
+
+  goHome() {
+    this.router.navigate(['']);
+  }
+
+  goToSports() {
+    this.router.navigate(['/home/sports']);
   }
 
   login() {
@@ -55,10 +53,6 @@ export class HomeComponent implements OnInit {
   getUser(): User {
     console.log(this.auth.getUser());
     return this.auth.getUser();
-  }
-
-  sportClick(sport) {
-    this.router.navigate([sport.toLocaleLowerCase()]);
   }
 
 }
