@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   imageURL: '/assets/img/',
-  serverURL: '/wsa/services'
+  serverURL: '/api'
 };
 
 /*

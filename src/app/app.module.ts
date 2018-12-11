@@ -7,20 +7,24 @@ import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule, MatDialogModule, MatFormFieldControl,
+  MatCardModule, MatDatepickerModule, MatDialogModule, MatFormFieldControl,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
-  MatMenuModule,
+  MatMenuModule, MatOptionModule, MatSelectModule, MatStepperModule,
   MatToolbarModule
 } from '@angular/material';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from './shared/services/auth.service';
+import {AuthService} from './login/auth.service';
 import {CommonDataService} from './shared/services/common-data.service';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import { LineupComponent } from './lineup/lineup.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientInMemoryWebApiModule, InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './shared/services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -45,8 +49,10 @@ import {HttpClientModule} from '@angular/common/http';
     MatDialogModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    FlexLayoutModule
   ],
   providers: [
     AuthService,

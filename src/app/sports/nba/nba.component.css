@@ -1,0 +1,15 @@
+.container {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.lineup-container{
+  margin-right: 10px;
+  margin-left: 10px;
+  min-height: 2000px;
+}
+
+table {
+  width: 100%;
+}

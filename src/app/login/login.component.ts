@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../shared/services/auth.service';
+import {AuthService} from './auth.service';
 import {User} from '../shared/models/user';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm) {
     const username = loginForm.username;
     const password = loginForm.password;
-    console.log(username);
-    console.log(password);
 
     this.auth.loginUser(username, password).subscribe(res => {
       if (res) {

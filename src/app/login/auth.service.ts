@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import {CommonDataService} from './common-data.service';
-import {User} from '../models/user';
+import {CommonDataService} from '../shared/services/common-data.service';
+import {User} from '../shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -22,14 +22,13 @@ export class AuthService {
     // set current user to logged in user
     const loginInfo = { username: userName, password: password };
 
-    console.log(loginInfo);
-
     this.currentUser = {
       firstName: 'WSA',
       lastName: 'WSA',
       username: 'WSA'
     };
 
+    // server will do authentication
     return new Observable(observer => {
       observer.next(true);
       observer.complete();
@@ -41,7 +40,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    console.log(!!this.currentUser);
     return (!(!this.currentUser));
   }
 

@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {MatDialog} from '@angular/material';
 import {User} from '../shared/models/user';
-import {AuthService} from '../shared/services/auth.service';
+import {AuthService} from '../login/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -51,7 +51,6 @@ export class HomeComponent implements OnInit {
   }
 
   getUser(): User {
-    console.log(this.auth.getUser());
     return this.auth.getUser();
   }
 
